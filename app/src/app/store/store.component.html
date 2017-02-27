@@ -1,0 +1,7 @@
+<h1 class="page-header">Store Dashboard</h1>
+
+<div class="grid grid-pad">
+  <a *ngFor="let pet of pets" [routerLink]="['/pet', pet.id]" class="col-1-4">
+    <h4>{{pet.name}}</h4>
+  </a>
+</div>

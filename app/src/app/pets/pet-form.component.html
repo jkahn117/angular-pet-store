@@ -1,0 +1,50 @@
+{{diagnostic}}
+
+<form>
+  <div class="form-group" [hidden]="!editMode">
+    <label for="pet-name">Name</label>
+    <input type="text" class="form-control" id="pet-name" [(ngModel)]="pet.name" placeholder="name" required="required" name="name" />
+  </div>
+
+  <div class="form-group">
+    <label for="pet-category">Category</label>
+
+    <select class="form-control" id="category" [(ngModel)]="pet.category" name="category"
+      required="required" [disabled]="!editMode">
+      <option>dog</option>
+      <option>cat</option>
+      <option>fish</option>
+      <option>hamster</option>
+      <option>monkey</option>
+      <option>guinea pig</option>
+      <option>snake</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="pet-status">Status</label>
+    <select class="form-control" id="status" [(ngModel)]="pet.status" name="status"
+      required="required" [disabled]="!editMode">
+      <option>available</option>
+      <option>pending</option>
+      <option>sold</option>
+    </select>
+  </div>
+
+  <div class="form-group">
+    <label for="">Age</label>
+    <input type="text" class="form-control" id="pet-age" [(ngModel)]="pet.age"
+      placeholder="age" required="required" name="age" [disabled]="!editMode" />
+  </div>
+
+  <div [hidden]="!editMode">
+    <button (click)="save()" class="btn btn-primary">Save</button>
+    <button (click)="delete()" class="btn btn-danger">Delete</button>
+    <button (click)="goBack()" class="btn btn-secondary pull-right">Cancel</button>
+  </div>
+
+  <div [hidden]="editMode">
+    <button (click)="goBack()" class="btn btn-default">Back</button>
+  </div>
+
+</form>
